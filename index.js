@@ -3,7 +3,7 @@ loadingScreen.innerHTML = `
   <div class="toLoad">
       <div class="loadContent">
           <img src="/src/logo.png" alt="" />
-          <h1>The Last Over</h1>
+          <h1>The Final Over</h1>
       </div>
   </div>
   `;

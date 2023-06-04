@@ -23,24 +23,23 @@ let balls = 6;
 let wickets = 5;
 let flag = "";
 function game() {
+   ballImg.classList.add("animation");
    if (balls > 0 && wickets < 10) {
       let runs = Math.floor(Math.random() * 7 + 1);
       if (runs == 1 || runs == 2 || runs == 4 || runs == 6) {
          score += runs;
          console.log(`Runs:${runs},Score:${score}`);
          display.innerHTML = `
-      <video autoplay>
-        <source src="/src/${runs}.mp4">
-      </video>
-      <p>${runs} runs</p>
-      `;
+         <p>${runs} runs</p>
+         <img src="/src/${runs}.png" alt="${runs} img" />
+         <p>${runs} runs</p>
+         `;
       } else if (runs == 3) {
          wickets++;
          console.log(`Out`);
          display.innerHTML = `
-         <video autoplay>
-           <source src="/src/out.mp4">
-         </video>
+         <p>Out</p>
+         <img src="/src/out.png" alt="out img" />
          <p>Out</p>
          `;
       } else if (runs == 7) {
@@ -49,25 +48,58 @@ function game() {
          console.log(`Score:${score}`);
          display.innerHTML = `
          <p>Wide ball</p>
+         <img src="/src/wide.png" alt="wide img" />
+         <p>Wide ball</p>
          `;
       } else {
          console.log(runs, "dot ball");
          display.innerHTML = `
-         <video autoplay>
-           <source src="/src/dot.mp4">
-         </video>
+         <p>dot ball</p>
+         <img src="/src/dot.png" alt="dot img" />
          <p>dot ball</p>
          `;
       }
       balls--;
       console.log(`balls left :${balls}`);
-      setTimeout(() => {
-         if (score > 170) {
-            display.innerHTML = `csk won`;
-            balls = 0;
-         } else if (balls == 0 || wickets > 9) {
-            display.innerHTML = `gt won`;
-         }
-      }, 9000);
+      details.innerHTML = `
+      <img src="/src/CSK logo.png" alt="team logo" />
+      <p style="font-size: 40px; font-weight: 700;">${score}-${wickets}</p>
+      <p>To Win</p>
+      <hr>
+      <div>
+        <p>runs</p>
+        <p>${171 - score}</p>
+      </div>
+      <div>
+        <p>balls</p>
+        <p>${balls}</p>
+      </div>
+      <img src="/src/GT logo.png" alt="team logo" />
+      `;
+      if (score > 170) {
+         balls = 0;
+         setTimeout(() => {
+            contentScreen.style.display = "none";
+            loadingScreen.innerHTML = `
+           <div class="toLoad">
+            <div class="loadContent">
+              <h1>Chennai Super Kings won</h1>
+            </div>
+           </div>
+           `;
+         }, 2000);
+      } else if (balls == 0 || wickets > 9) {
+         setTimeout(() => {
+            contentScreen.style.display = "none";
+            loadingScreen.innerHTML = `
+            <div class="toLoad">
+              <div class="loadContent">
+                <h1>Gujarat Titans won</h1>
+              </div>
+            </div>
+           `;
+         }, 2000);
+      }
    }
-}
+   
+  }

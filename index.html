@@ -13,18 +13,29 @@
       <div class="container">
          <div class="gameContainer">
             <div id="display" class="displayContainer">
-               <h1>Ready?</h1>
+               <h3>Ready to ball?</h3>
+               <img src="/src/ready.png" alt="ready" />
+               <h3>Ready to ball?</h3>
             </div>
-            <button type="button" onclick="game()" class="gameBtn">
-               Bat/Bowl
-            </button>
-            <div class="scoreboard">
-               <img src="" alt="team logo" />
-               <p>total run/wicket</p>
-               <p>to win</p>
-               <p>runs</p>
-               <p>balls</p>
-               <img src="" alt="team logo" />
+            <div class="btn">
+               <button type="button" onclick="game()" class="gameBtn">
+                  <img src="/src/ball.webp" alt="ball button" id="ballImg"/>
+               </button>
+            </div>
+            <div class="scoreboard" id="details">
+               <img src="/src/CSK logo.png" alt="team logo" />
+               <p style="font-size: 40px; font-weight: 700">158-5</p>
+               <p>To Win</p>
+               <hr />
+               <div>
+                  <p>runs</p>
+                  <p>13</p>
+               </div>
+               <div>
+                  <p>balls</p>
+                  <p>6</p>
+               </div>
+               <img src="/src/GT logo.png" alt="team logo" />
             </div>
          </div>
       </div>

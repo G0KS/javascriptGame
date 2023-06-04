@@ -28,10 +28,11 @@ font-family: 'Rammetto One', cursive;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   gap: 10px;
    border-radius: 50%;
    background-color: #fff;
    animation: loadAnimation;
-   animation-duration: 3s;
+   animation-duration: 2s;
 }
 
 @keyframes loadAnimation {
@@ -135,7 +136,7 @@ font-family: 'Rammetto One', cursive;
    color: #fff;
    text-transform: uppercase;
    text-align: center;
-   font-size: larger;
+   font-size: 25px;
 }
 
 .scoreboard img {
@@ -147,4 +148,22 @@ hr {
    height: 120px;
    border: none;
    background-color: #fff;
+}
+
+.playAgain {
+   margin-top: 50px;
+   padding: 10px 9px;
+   border: none;
+   border-radius: 17px;
+   color: red;
+   background-color: transparent;
+   font-family: "Rammetto One", cursive;
+   font-size: 25px;
+   cursor: pointer;
+   transition: all 0.3s;
+}
+
+.playAgain:hover {
+   text-shadow: 0 0 10px rgba(38, 0, 255, 0.258);
+   transform: scale(1.5, 1.5);
 }
